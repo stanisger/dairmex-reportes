@@ -1,0 +1,31 @@
+@import '/../../scss/variables';
+@import '/../../scss/mixins';
+@import '/../../scss/rem';
+
+
+.form-signin {
+    @include box-shadow( 0, 1px, 8px, 0, $gray-medium);
+    background: $color-white;
+    border-radius: 5%;
+    max-width: rem(420px);
+    margin: 10% auto;
+    padding:  rem(18px) rem(36px) rem(36px);
+    width: 100%; 
+ 
+    .navbar-brand {
+        margin: 0;
+
+        h2 {
+            color: $primary-color;
+            font-weight: bold;
+            margin: 1rem 0 0;
+        }
+    } 
+
+
+    @media (max-width: rem(576px)) {
+        @include box-shadow( 0, 0, 0, 0, $gray-medium);
+        margin: 0;
+        max-width: 100%;
+    }
+}

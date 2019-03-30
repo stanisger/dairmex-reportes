@@ -1,0 +1,19 @@
+.form-label-group {
+
+    .form-control {
+        margin : 1rem 0;
+    }
+} 
+.btn {
+    border: 0;
+    
+    &.btn-primary {
+        background: $tertiary-color;
+        transition: $transition-middle;
+        
+        &:hover {
+            background: $color-hover;
+        }
+    }
+}
+

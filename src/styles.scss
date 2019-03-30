@@ -2,3 +2,132 @@
 @import './scss/rem';
 @import './scss/variables';
 @import './scss/helpers';
+
+// módulos
+@import './moduls-cm-bootstrap/main';
+
+:root {
+    font-size: 16px;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: $font-title !important;
+  }
+  
+  h1 {
+    font-size: rem(24px) !important;
+  
+    @media (min-width: rem(768px)) {
+      font-size: rem(42px) !important;
+    }
+  }
+  
+  h2 {
+    font-size: rem(20px) !important;
+  
+    @media (min-width: rem(768px)) {
+      font-size: rem(24px) !important;
+    }
+  
+  }
+  
+  h3 {
+    font-size: rem(20px) !important;
+  
+    @media (min-width: rem(768px)) {
+      font-size: rem(22px) !important;
+    }
+  
+  }
+  
+  h4,
+  h5 {
+    font-family: $font-body !important;
+    font-weight: 700 !important;
+  }
+  
+  h4 {
+    font-size: 1.25rem !important;
+  }
+  
+  h5 {
+    font-size: 1rem !important;
+  }
+  
+  
+  p {
+    font-family: $font-body !important;
+    font-size: rem(14px);
+  
+    @media (min-width: rem(768px)) {
+      font-size: rem(16px);
+    }
+  }
+  
+  a {
+    transition: $transition-middle;
+    color: $secondary-color !important;
+  
+    &:hover {
+      text-decoration: none !important;
+      color: $color-hover !important;
+    }
+  }
+  
+  ::placeholder {
+    color:  $primary-color ;
+  }
+  
+  .w100 {
+    width: 100%;
+  }
+  
+  .bg-modal {
+    background-color: $primary-color !important;
+  }
+  
+  .modal-dialog {
+      max-width: 100% !important;
+   }
+  
+   @media (min-width: 992px){
+  
+     .modal-lg, .modal-xl {
+       max-width: 800px !important;;
+     }
+  
+      .modal-sm {
+        max-width: rem(400px) !important;;
+      }
+   }
+  
+   //Data picker arrows
+  .ngb-dp-navigation-chevron {
+    width: rem(10px) !important;
+    height: rem(10px) !important;
+    border-width: rem(4px) rem(4px) 0 0 !important;
+  }
+  
+  button {
+    outline: none !important;
+  }
+  
+  
+  // Small devices (landscape phones, 576px and up)
+  //@media (min-width: rem(576px)) {}
+  
+  // Medium devices (tablets, 768px and up)
+  //@media (min-width: rem(768px)) {}
+  
+  // Large devices (desktops, 992px and up)
+  //@media (min-width: rem(992px)) {}
+  
+  // Extra large devices (large desktops, 1200px and up)
+  //@media (min-width: rem(1200px)) {}
+  
