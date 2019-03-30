@@ -1,0 +1,301 @@
+//********************************************************
+// Degradado
+@mixin linear-gradient($color-one,$color-two,$degrees) {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-one', endColorstr='$color-two',GradientType=1 ); /* ie6-9 */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, $color-one), color-stop(100%, $color-two)); /* safari4+,chrome */
+    background: -webkit-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* safari5.1+,chrome10+ */
+    background: -moz-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* ff3.6+ */
+    background: -ms-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* ie10+ */
+    background: -o-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* opera 11.10+ */
+    background: linear-gradient($degrees, $color-one 0%, $color-two 100%); /* w3c */
+    }
+  // implementación
+  //  @include linear-gradient(#00FFFF,#0080FF,45deg);
+  
+  //********************************************************
+  // Centrado
+  @mixin center($center-all) {
+      position: absolute;
+      @if $center-all == both {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+      }
+      @else {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+      }
+    }
+  // Implementación
+  // Centrado vertical y horizontal: @include center(both);
+  // Centrado vertical: @include center(vert);
+  
+  //********************************************************
+  // Bordes
+  @mixin border(
+      $border-size: 1px,
+      $border-pattern: solid,
+      $border-color: black,
+      $border-position: all,
+      $border-clear: none ) {
+    @if $border-position == all {
+      border: $border-size $border-pattern $border-color;
+    }
+    @else {
+      border-#{$border-position}: $border-size
+      $border-pattern $border-color;
+    }
+    @if $border-clear == none {
+      $border-position: all;
+    }
+    @else {
+      border-#{$border-clear}: none;
+    }
+  }
+  // Implementación
+  // Borde todos los lados: @include border(5px,solid,#0080FF,all);
+  // Borde menos el inferior: @include border(5px,solid,#0080FF,all,bottom);
+  // Borde solo el superior: @include border(5px,dashed,#0080FF,top);
+  
+  //********************************************************
+  // Placeholder
+  @mixin placeholder() {
+      input::-webkit-input-placeholder {@content}
+      input:-moz-placeholder           {@content}
+      input::-moz-placeholder          {@content}
+      input:-ms-input-placeholder      {@content}
+  };
+  
+  
+  // Implemantacion
+  // @include placeholder {
+  //     color: #0066CC;
+  //     background: #ccffff;
+  //   }
+  
+  //********************************************************
+  // Transiciones
+  @mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
+      -webkit-transition: $what $time $how;
+      -moz-transition:    $what $time $how;
+      -ms-transition:     $what $time $how;
+      -o-transition:      $what $time $how;
+      transition:         $what $time $how;
+    }
+  // Implementación
+  // button.fade {
+  //   @include transition(all,0.5s,ease-out);
+  //   color: #00FFFF;
+  //   background-color: #0080FF;
+  //   border-color: #00FFFF;
+  //   &:hover {
+  //     color: #0080FF;
+  //     background-color: #00FFFF;
+  //     border-color: #0080FF;
+  //   }
+  // }
+  // button.scale {
+  //   @include transition(all,0.3s,ease-out);
+  //   color: #00FFFF;
+  //   background-color: #0080FF;
+  //   width: 18rem;
+  //   position: relative;
+  //   top: 0;
+  //   &:hover {
+  //     width: 22rem;
+  //     top: 10px;
+  //   }
+  // }
+  
+  //********************************************************
+  // Bordes redondeados
+  @mixin border-radius($top-left:10px, $top-right:null, $bottom-right:null, $bottom-left:null){
+      -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+         -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
+          -ms-border-radius: $top-left $top-right $bottom-right $bottom-left;
+              border-radius: $top-left $top-right $bottom-right $bottom-left;
+    }
+  
+  // Implementación
+  // Mismas dimensiones: @include border-radius(1em);
+  // Diferentes dimensiones: @include border-radius(25px,5px,25px,5px);
+  
+  //********************************************************
+  // Opacidad
+  @mixin opacity($opacity: 0.5) {
+      $opacityPercentage: ($opacity * 100);
+      filter: alpha(opacity=$opacityPercentage);
+      opacity: $opacity;
+    }
+  // Implementación
+  // @include opacity(0.75);
+  
+  //********************************************************
+  // Sombra en texto
+  @mixin text-shadow($x1:2px, $y1:2px, $blur1:5px, $color1:black, $x2:null, $y2:null, $blur2:null, $color2:null){
+      @if ($x2) {
+       text-shadow: $x1 $y1 $blur1 $color1, $x2 $y2 $blur2 $color2;
+      }
+      @else {
+        text-shadow: $x1 $y1 $blur1 $color1;
+      }
+    }
+  // Implementación
+  // Un color de sombra:@include text-shadow(2px,2px,2px,rgba(0,0,0,.25));
+  // Dos colores de sombra: @include text-shadow(-1px,-2px,3px,#00FFFF, 1px,2px,3px,#0080FF);
+  
+  //********************************************************
+  // Rotación de elementos
+  @mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
+      -webkit-transform: rotate($deg + deg);
+      -moz-transform: rotate($deg + deg);
+      -ms-transform: rotate($deg + deg);
+      -o-transform: rotate($deg + deg);
+      transform: rotate($deg + deg);
+      filter: progid:DXImageTransform.Microsoft.Matrix(
+           M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');
+        zoom: 1;
+    }
+  // Implementación
+  //  @include rotate(180, 0.00000000, 1.00000000, -1.00000000, 0.00000000);
+  /* handy matrix calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html */
+  
+  
+  
+  //********************************************************
+  // ¿?
+  @mixin tinymce-img {
+      img {
+        margin: 0.5em 2em 1em 0;
+      }
+      img[style*="float: left"], img.left {
+        float: left;
+        margin: 0.5em 2em 1em 0;
+        max-width: 50%;
+      }
+      img[style*="float: right"], img.right {
+        margin: 0.5em 0 1em 2em;
+        float: right;
+      }
+      .captionImage.right {
+        float: right; clear: right;
+        margin: 0 0 1em 2em;
+      }
+      .captionImage.left {
+        float: left; clear: left;
+        margin: 0 2em 1em 0;
+      }
+      .captionImage img.left {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-right: 0;
+      }
+      .captionImage img.right {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: 0;
+      }
+  
+    @media print, screen and (min-width: 640px) {
+      img[style*="float: left"], img.left, .captionImage.left {
+        max-width: 50%;
+      }
+      img[style*="float: right"], img.right, .captionImage.right {
+        max-width: 50%;
+      }
+    }
+    @media print, screen and (min-width: 1280px) {
+      img[style*="float: left"], img.left, .captionImage.left {
+        max-width: 75%;
+      }
+      img[style*="float: right"], img.right, .captionImage.right {
+        max-width: 75%;
+      }
+    }
+  }
+  // Implementación
+  // @include tinymce-img();
+  
+  //********************************************************
+  // Sombra de cajas
+  // @mixin box-shado($top, $left, $blur, $color, $inset: false) {
+  //     @if $inset {
+  //     -webkit-box-shadow:inset $left $top $blur $color;
+  //     -moz-box-shadow:inset $left $top $blur $color;
+  //     box-shadow:inset $left $top $blur $color;
+  //     } @else {
+  //     -webkit-box-shadow: $top $left $blur $color;
+  //     -moz-box-shadow: $top $left $blur $color;
+  //     box-shadow: $top $left $blur $color;
+  //     }
+  //   }
+  @mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+      -webkit-box-shadow:$top $left $blur $color #{$inset};
+      -moz-box-shadow:$top $left $blur $color #{$inset};
+      box-shadow:$top $left $blur $color #{$inset};
+    }
+  
+  // Implementación
+  // @include box-shadow( 0 8px 6px -6px black );
+  
+  @mixin rotate($degrees) {
+     -webkit-transform: rotate($degrees);
+     -moz-transform: rotate($degrees);
+     -ms-transform: rotate($degrees);
+     -o-transform: rotate($degrees);
+     transform: rotate($degrees);
+     // -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+     // filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=#{-1*sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+  }
+  
+  @mixin box-sizing($box-model) {
+      -webkit-box-sizing: $box-model; // Safari <= 5
+      -moz-box-sizing: $box-model; // Firefox <= 19
+      box-sizing: $box-model;
+  }
+  @mixin transition($transition...) {
+      -moz-transition:    $transition;
+      -o-transition:      $transition;
+      -webkit-transition: $transition;
+      transition:         $transition;
+  }
+  @mixin transition-property($property...) {
+      -moz-transition-property:    $property;
+      -o-transition-property:      $property;
+      -webkit-transition-property: $property;
+      transition-property:         $property;
+  }
+  @mixin transition-duration($duration...) {
+      -moz-transition-property:    $duration;
+      -o-transition-property:      $duration;
+      -webkit-transition-property: $duration;
+      transition-property:         $duration;
+  }
+  @mixin transition-timing-function($timing...) {
+      -moz-transition-timing-function:    $timing;
+      -o-transition-timing-function:      $timing;
+      -webkit-transition-timing-function: $timing;
+      transition-timing-function:         $timing;
+  }
+  @mixin transition-delay($delay...) {
+      -moz-transition-delay:    $delay;
+      -o-transition-delay:      $delay;
+      -webkit-transition-delay: $delay;
+      transition-delay:         $delay;
+  }
+  
+  @mixin cero {
+    margin: 0;
+    padding: 0;
+  }
+  
+  @mixin all-center {
+    left: 0;
+    margin: 0;
+    right: 0;
+  }
+  

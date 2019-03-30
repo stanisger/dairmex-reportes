@@ -1,0 +1,131 @@
+.cm-primary-color { color: $primary-color;}
+.cm-secondary-color { color: $secondary-color;}
+.cm-font-color { color: $primary-color;}
+.cm-white-color { color: $color-white;}
+.cm-black-color { color: $color-black;}
+
+.cm-primary-bg { background-color: $primary-color;}
+.cm-secondary-bg { background-color: $secondary-color;}
+.cm-font-bg { background-color: $primary-color;}
+.cm-white-bg { background-color: $color-white;}
+.cm-black-bg { background-color: $color-black;}
+
+.no-gutters {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Margins */
+.mt-80 {
+  margin-top: rem(80px) !important;
+}
+
+.mt-30 {
+  margin-top: rem(30px);
+}
+
+.mb-30 {
+  margin-bottom: rem(30px);
+}
+
+.my-30 {
+  margin: rem(30px) 0;
+}
+
+.mt-20 {
+  margin-top: rem(20px);
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.my-20 {
+  margin: rem(20px) 0;
+}
+
+.mb-20 {
+  margin-bottom: rem(20px) !important;
+}
+
+.mb-10 {
+  margin-bottom: rem(10px) !important;
+}
+
+.my-10 {
+  margin: rem(10px) 0;
+}
+
+.mx-10 {
+  margin: 0 rem(10px);
+}
+
+.m-10 {
+  margin: rem(10px) !important;
+}
+
+.m-header {
+  margin-top: rem(80px);
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mb-none {
+  margin-bottom: 0 !important;
+}
+
+.m-none {
+  margin: 0 !important;
+}
+
+/* Paddings */
+.p-30 {
+  padding: rem(30px) !important;
+}
+
+.pt-30 {
+  padding-top: rem(30px);
+}
+
+.pl-20 {
+  padding-left: rem(20px);
+}
+
+.py-30 {
+  padding: rem(30px) 0 !important;
+}
+
+.pl-20 {
+  padding-left: rem(20px) !important;
+}
+
+/*Borders */
+.bb-1 {
+  border-bottom: rem(1px) solid #D0D1D4;
+}
+
+/* Backgrounds */
+.bg-mischka {
+  background-color: $mischka;
+}
+
+/* Text */
+.highlight {
+  font-weight: 900;
+}
+
+/* Others */
+.width-100 {
+  width: 100vw !important;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.bullet {
+  width: 2rem;
+  height: rem(14px);
+}
