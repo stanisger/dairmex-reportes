@@ -1,0 +1,29 @@
+@import '/../../scss/variables';
+@import '/../../scss/mixins';
+@import '/../../scss/rem';
+
+// variables de módulo
+$margin-top-body: 7rem;
+
+.dashboard-item {
+    margin-top: $margin-top-body;
+
+
+    table {
+
+
+        td {
+            border: 0;
+            padding: 1rem;
+        }
+        tbody {
+            tr:nth-of-type(odd) {
+                background: $iron;
+            }
+
+            .iconItem {
+                cursor: pointer;
+            } 
+        }
+    }
+}

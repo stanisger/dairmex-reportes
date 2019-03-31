@@ -1,0 +1,116 @@
+@import '/../../../scss/variables';
+@import '/../../../scss/mixins';
+@import '/../../../scss/rem';
+
+// variables de modulo
+$dimesion-thumbnail : rem(30px);
+
+.navbar {
+    background: $secondary-color;
+
+    @media (max-width: rem(576px)) {
+        @include cero;
+        display: inherit;
+        height: rem(80px);
+    }
+
+    .navbar-item {
+        padding-top: .7rem;
+        position: relative;
+        width: 100%;
+
+        @media (max-width: rem(576px)) {
+            padding-top: 0; 
+        }
+
+        .nav  {
+            margin-left: auto;
+
+              @media (max-width: rem(576px)) {
+                  background: $tertiary-color;
+                  height: 2.2rem;
+                  padding: .2rem 1rem 0 0;
+                  width: 100%;
+              }
+        }
+    }
+
+    // logo
+    .link-logo{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: rem(200px);
+
+        .imageLogo {
+            width: 100%;
+        }
+
+        @media (max-width: rem(576px)) {
+            left: .51rem;
+            top: 2.5rem;
+            width: 8.5rem
+        }
+
+
+    }
+
+
+    // menu user
+    .nav-item {
+        display: flex;
+
+        .nav-link {
+            color: $color-white;
+        }
+
+        .textItem {
+            color: $color-white;
+            font-size: .89rem;
+            margin: .15rem 0 0; 
+
+            @media (max-width: rem(576px)) {
+                font-size: .8rem;
+                margin: .3rem 0 0; 
+            }
+        }
+
+        .btn {
+            @include cero;
+
+            .iconItem {
+                font-size: 2rem;
+                margin-left: 1rem;
+
+                @media (max-width: rem(576px)) {
+                    font-size: 1.4rem;
+                    padding-top: .25rem;
+                }
+            }
+        }
+
+        .content-image {
+            @include border-radius(50%);
+            @include cero;
+            height: $dimesion-thumbnail;
+            margin-left: 1rem; 
+            overflow: hidden;
+            position: relative;
+            width: $dimesion-thumbnail;
+
+            @media (max-width: rem(576px)) {
+                display: none;
+            }
+            
+            .imageItem {
+                @include all-center;
+                height: $dimesion-thumbnail;
+                position: absolute;
+                width: $dimesion-thumbnail;
+            }
+        }
+
+
+    }
+
+}

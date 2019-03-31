@@ -1,4 +1,14 @@
 .form-label-group {
+    &.-icon {
+        position: relative;
+        
+        label {
+            color: $secondary-color;
+            position: absolute;
+            right: 1rem;
+            top: .5rem;
+        }
+    }
 
     .form-control {
         margin : 1rem 0;
@@ -7,13 +17,71 @@
 .btn {
     border: 0;
     
-    &.btn-primary {
+    &.-btn-primary {
         background: $tertiary-color;
         transition: $transition-middle;
+        color: $color-white;
         
         &:hover {
             background: $color-hover;
         }
+    }
+
+    &.-btn-primary-outline {
+        border: 1px solid $tertiary-color;
+        background: transparent;
+        color: $tertiary-color;
+        transition: $transition-middle;
+        
+        &:hover {
+            background: $color-hover;
+            color: $color-white;
+        }
+    }
+
+    &.-btn-disabled {
+
+        background: $iron;
+        cursor: not-allowed;
+        color: $gray-light;
+    
+    }
+
+} 
+
+.iconItem {
+    transition :  $transition-middle;
+
+    // color
+    &.-color-primary {
+        color: $primary-color;
+    }
+
+    &.-color-tertiary {
+        color: red;
+    }
+
+    &.-color-white {
+        color: $color-white;
+    }
+
+    
+
+    // tamaño
+    &.-large {
+        font-size: 2rem;
+    }
+
+    &.-medium {
+        font-size: 1.5rem;
+    }
+
+    &.-small {
+        font-size: 1.2rem;
+    }
+
+    &:hover {
+        opacity: .5 ;
     }
 }
 

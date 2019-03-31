@@ -12,6 +12,7 @@
   
   body {
     overflow-x: hidden;
+    color: $primary-color; 
   }
   
   h1,
@@ -72,11 +73,11 @@
   
   a {
     transition: $transition-middle;
-    color: $secondary-color !important;
+    color: $secondary-color;
   
     &:hover {
-      text-decoration: none !important;
-      color: $color-hover !important;
+      text-decoration: none ;
+      color: $color-hover;
     }
   }
   
