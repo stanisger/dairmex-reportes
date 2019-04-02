@@ -9,6 +9,9 @@ import { HeaderComponent } from './common/header/header.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ReportComponent } from './report/report/report.component';
+import { DatesComponent } from './report/dates/dates.component';
+import { BreadcrumbComponent } from './report/breadcrumb/breadcrumb.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HeaderComponent,
     LoginComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReportComponent,
+    DatesComponent,
+    BreadcrumbComponent
   ],
   imports: [
     BrowserModule,

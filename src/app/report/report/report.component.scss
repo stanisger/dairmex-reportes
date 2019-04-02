@@ -1,0 +1,12 @@
+@import '/../../../scss/variables';
+@import '/../../../scss/mixins';
+@import '/../../../scss/rem';
+
+
+
+// variables de módulo
+$margin-top-body: 7rem;
+
+.reporte-item {
+  margin-top: $margin-top-body;
+}

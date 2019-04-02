@@ -1,0 +1,44 @@
+.btn {
+    border: 0;
+
+    &.-btn-primary-text { 
+        color: $tertiary-color;
+        padding: 0;
+        vertical-align: inherit;
+
+        &:hover {
+            color: $color-hover;
+        }
+    }
+    
+    &.-btn-primary {
+        background: $tertiary-color;
+        transition: $transition-middle;
+        color: $color-white;
+        
+        &:hover {
+            background: $color-hover;
+        }
+    }
+
+    &.-btn-primary-outline {
+        border: 1px solid $tertiary-color;
+        background: transparent;
+        color: $tertiary-color;
+        transition: $transition-middle;
+        
+        &:hover {
+            background: $color-hover;
+            color: $color-white;
+        }
+    }
+
+    &.-btn-disabled {
+
+        background: $iron;
+        cursor: not-allowed;
+        color: $gray-light;
+    
+    }
+
+} 

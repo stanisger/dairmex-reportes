@@ -11,6 +11,10 @@ $margin-top-body: 7rem;
 
     table {
 
+        @media (max-width: rem(576px)) { 
+            font-size: .85rem;
+        }
+
 
         td {
             border: 0;

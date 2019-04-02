@@ -27,7 +27,6 @@
         }
     } 
 
-
     @media (max-width: rem(576px)) {
         @include box-shadow( 0, 0, 0, 0, $gray-medium);
         margin: 0;

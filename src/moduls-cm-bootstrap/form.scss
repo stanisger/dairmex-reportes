@@ -14,40 +14,6 @@
         margin : 1rem 0;
     }
 } 
-.btn {
-    border: 0;
-    
-    &.-btn-primary {
-        background: $tertiary-color;
-        transition: $transition-middle;
-        color: $color-white;
-        
-        &:hover {
-            background: $color-hover;
-        }
-    }
-
-    &.-btn-primary-outline {
-        border: 1px solid $tertiary-color;
-        background: transparent;
-        color: $tertiary-color;
-        transition: $transition-middle;
-        
-        &:hover {
-            background: $color-hover;
-            color: $color-white;
-        }
-    }
-
-    &.-btn-disabled {
-
-        background: $iron;
-        cursor: not-allowed;
-        color: $gray-light;
-    
-    }
-
-} 
 
 .iconItem {
     transition :  $transition-middle;
@@ -84,4 +50,5 @@
         opacity: .5 ;
     }
 }
+
 
