@@ -4,24 +4,11 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReportComponent } from './report/report/report.component';
 
-
 const routes: Routes = [
-
-    {
-        path: '',
-        component: LoginComponent
-      },
-
-{
-    path: 'dashboard',
-    component: DashboardComponent 
-  },
-
-  {
-    path: 'report',
-    component: ReportComponent 
-  },
-
+  { path: '',          component: LoginComponent },
+  { path: 'login',     component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent  },
+  { path: 'report',    component: ReportComponent },
 ];
 
 @NgModule({

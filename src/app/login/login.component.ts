@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DAIRMEX_LOGO } from '../common/assets/assets';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  public DAIRMEX_LOGO = DAIRMEX_LOGO;
+
+  constructor() {}
 
   ngOnInit() {
   }
