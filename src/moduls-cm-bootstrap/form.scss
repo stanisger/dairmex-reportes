@@ -51,4 +51,25 @@
     }
 }
 
+.input-group {
+
+    &.-file {
+        margin: 2rem 0 ;
+    }
+
+    .custom-file {
+
+        label {
+            font-size: .85rem;
+            text-align: left;
+
+            &:after {
+                background: $tertiary-color;
+                color: $color-white;
+                content: 'Elegir' !important;
+            }
+        }
+    }
+}
+
 

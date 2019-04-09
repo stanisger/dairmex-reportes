@@ -1,0 +1,22 @@
+table {
+    font-size: .85rem;
+
+    @media (max-width: rem(576px)) { 
+        font-size: .8rem;
+    }
+
+
+    td {
+        border: 0;
+        padding: 1rem;
+    }
+    tbody {
+        tr:nth-of-type(odd) {
+            background: $iron;
+        }
+
+        .iconItem {
+            cursor: pointer;
+        } 
+    }
+}

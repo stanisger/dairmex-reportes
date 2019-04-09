@@ -13,6 +13,8 @@ import { ReportComponent } from './report/report/report.component';
 import { DatesComponent } from './report/dates/dates.component';
 import { BreadcrumbComponent } from './report/breadcrumb/breadcrumb.component';
 import { ImagesReportsComponent } from './report/images-reports/images-reports.component';
+import { MainComponent } from './report/main/main.component';
+import { MainorComponent } from './report/mainor/mainor.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { ImagesReportsComponent } from './report/images-reports/images-reports.c
     ReportComponent,
     DatesComponent,
     BreadcrumbComponent,
-    ImagesReportsComponent
+    ImagesReportsComponent,
+    MainComponent,
+    MainorComponent
   ],
   imports: [
     BrowserModule,

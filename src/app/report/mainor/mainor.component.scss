@@ -1,0 +1,12 @@
+@import '/../../../scss/variables';
+@import '/../../../scss/mixins';
+@import '/../../../scss/rem';
+
+.section-mainor {
+    background: $gray-medium;
+    padding: 4rem 2rem;
+
+    @media (max-width: rem(576px)) {
+        padding: 1.5rem 1rem;
+    }
+}
