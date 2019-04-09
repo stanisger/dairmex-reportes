@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReportComponent } from './report/report/report.component';
 import { DatesComponent } from './report/dates/dates.component';
 import { BreadcrumbComponent } from './report/breadcrumb/breadcrumb.component';
+import { ImagesReportsComponent } from './report/images-reports/images-reports.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BreadcrumbComponent } from './report/breadcrumb/breadcrumb.component';
     DashboardComponent,
     ReportComponent,
     DatesComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    ImagesReportsComponent
   ],
   imports: [
     BrowserModule,
