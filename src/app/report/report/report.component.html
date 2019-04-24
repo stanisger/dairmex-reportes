@@ -1,18 +1,12 @@
 <app-header></app-header>
 
 <section class="reporte-item">
-  <div class="container">
-
-    <app-breadcrumb></app-breadcrumb>
-
-    <app-dates></app-dates>
-
-    <app-main></app-main>
-
-    <app-images-reports></app-images-reports>
-
-    <app-mainor></app-mainor>
-  
+  <div *ngIf="report" class="container">
+    <app-breadcrumb [report]="report"></app-breadcrumb>
+    <app-dates [report]="report"></app-dates>
+    <app-main [report]="report"></app-main>
+    <app-images-reports [report]="report"></app-images-reports>
+    <app-mainor [report]="report"></app-mainor>
   </div>
 </section>
 

@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +14,16 @@ import { BreadcrumbComponent } from './report/breadcrumb/breadcrumb.component';
 import { ImagesReportsComponent } from './report/images-reports/images-reports.component';
 import { MainComponent } from './report/main/main.component';
 import { MainorComponent } from './report/mainor/mainor.component';
+import { ProjectsService } from './common/services/projects.service';
+import { SessionService } from './common/services/sesion.service';
+import { FilesService } from './common/services/files.service';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from './common/services/auth.service';
+import { CommonUserGuard } from './common/guards/common-user.guard';
+import { GenerateReportComponent } from './dashboard/generate-report/generate-report.component';
+import { CardFilesComponent } from './report/card-files/card-files.component';
+import { CardImagesComponent } from './report/card-images/card-images.component';
+import { SpinnerComponent } from './common/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +37,25 @@ import { MainorComponent } from './report/mainor/mainor.component';
     BreadcrumbComponent,
     ImagesReportsComponent,
     MainComponent,
-    MainorComponent
+    MainorComponent,
+    GenerateReportComponent,
+    CardFilesComponent,
+    CardImagesComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    ProjectsService,
+    SessionService,
+    FilesService,
+    AuthService,
+    CommonUserGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,29 @@
+  <span>{{title}}</span>
+
+  <!-- galeria -->
+  <div class="masonry">
+
+    <div class="brick" *ngFor="let image of filesUploaded">
+      <img [src]="getLink(image)" alt="Cherry plant" title="image.nombre">
+    </div>
+
+    <div class="brick" *ngFor="let image of filesToUpload">
+      <img [src]="image.temporalPath" alt="Cherry plant" title="image.name">
+    </div>
+  </div>
+
+  <!-- btn -->
+  <div class="input-group -file">
+  <div class="custom-file">
+  <input type="file" (change)="addFileToUpload($event)" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+  <label class="custom-file-label" for="inputGroupFile04">Subir Fotografía</label>
+  </div>
+  </div> 
+  <button type="button" class="btn btn-primary" (click)="uploadFiles()"><i class="[ material-icons ] iconItem -small" style="position:relative; top: 4px;margin-right: 6px;">cloud</i>cargar archivos</button>
+
+<div class="spinner-container" *ngIf="showSpinner">
+  <div class="spinner">
+    <div class="double-bounce1-1"></div>
+    <div class="double-bounce2-1"></div>
+  </div>
+</div>

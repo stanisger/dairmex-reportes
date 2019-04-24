@@ -1,0 +1,54 @@
+<!-- card -->
+
+  <div class="card-header">
+    <h3 class="my-0 font-weight-normal">{{title}}</h3>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+        <tbody>
+          <tr *ngFor="let file of filesUploaded">
+              <td>{{file.nombre.substring(0,10)}}...</td>
+              <td>{{file.fechaDeInsercion | date:"dd/MM/yyyy"}}</td>
+              <td>
+                <a [href]="getLink(file)" target="_blanck">
+                  <i class="[ material-icons ] iconItem -color-primary -small">visibility</i>
+                </a>
+              </td>
+              <td><i (click)="deleteFileUploaded(file.id)"
+                class="[ material-icons ] iconItem -color-tertiary -small">delete</i></td>
+          </tr>
+              
+          <tr *ngFor="let file of filesToUpload">
+            <td>{{file.name.substring(0,10)}}...</td>
+            <!--<td>{{budget.lastModifiedDate | date: dd/mm/yyyy}}</td>-->
+            <td>
+              <a [href]="file.temporalPath" target="_blanck">
+                <i class="[ material-icons ] iconItem -color-primary -small">visibility</i>
+              </a>
+            </td>
+            <td><i (click)="deleteFileToUpload(file)"
+              class="[ material-icons ] iconItem -color-tertiary -small">delete</i></td>
+          </tr>
+          </tbody>
+        </table>
+        
+        <div class="input-group -file">
+            <div class="custom-file">
+              <input type="file" (change)="addFileToUpload($event)"
+                  class="custom-file-input"
+                  aria-describedby="inputGroupFileAddon04">
+              <label class="custom-file-label" for="inputGroupFile04">Subir Archivo</label>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="uploadFiles()"><i class="[ material-icons ] iconItem -small" style="position:relative; top: 4px;margin-right: 6px;">cloud</i>cargar archivos</button>
+    </div>   
+  </div>
+
+
+<div class="spinner-container" *ngIf="showSpinner">
+  <div class="spinner">
+    <div class="double-bounce1-1"></div>
+    <div class="double-bounce2-1"></div>
+  </div>
+</div>

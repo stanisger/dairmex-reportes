@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectsService } from 'src/app/common/services/projects.service';
+import { Report } from 'src/app/common/models/report';
+import { AuthService } from 'src/app/common/services/auth.service';
 
 @Component({
   selector: 'app-report',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportComponent implements OnInit {
 
-  constructor() { }
+  public idReport: string;
+  public report: Report;
+
+  constructor(
+    private _route: ActivatedRoute,
+    private _servProjects: ProjectsService
+  ) { }
 
   ngOnInit() {
+    this._route.params.subscribe(
+      ({idReport}) => this.initReport(idReport)
+    )
   }
 
+  initReport(idReport) {
+    if (!idReport) {return;}
+
+    this.idReport = idReport;
+    this._servProjects
+    .getReport(idReport)
+    .then(report => this.report=report);
+  }
+
+  getProjectPath() {
+    return Report.getProjectPath(this.report);
+  }
 }

@@ -3,35 +3,9 @@
 <section class="dashboard-item">
     <div class="container">
         <div class="card-deck mb-3 text-center">
+
+          <app-generate-report></app-generate-report>
           
-          <!-- card -->
-          <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-              <h3 class="my-0 font-weight-normal">Generar Reporte</h3>
-            </div>
-            <div class="card-body">
-               <form action="generate-report">
-
-                    <div class="form-label-group">
-                        <input type="text" id="inputNameStore" class="form-control" placeholder="Nombre de tienda" required="" >
-                    </div>
-
- 
-                    <div class="form-label-group">
-                    <input type="text" id="inputCity" class="form-control" placeholder="Ciudad" >
-                    </div>
-
-                    <div class="form-label-group">
-                      <input type="text" id="inputCity" class="form-control" placeholder="Descriptivo" >
-       
-                    </div>
-    
-                   <button type="button" class="btn  btn-block -btn-primary" routerLink="/report">Generar</button>
-               </form>
-            </div>
-          </div>
-
-
           <!-- card -->
           <div class="card mb-4 shadow-sm">
             <div class="card-header">
@@ -68,7 +42,7 @@
 
         </div>
 
-        <div class="card-deck mb-3 text-center">
+        <div *ngIf="reports.length" class="card-deck mb-3 text-center">
           
                 <!-- card -->
                 <div class="card mb-4 shadow-sm">
@@ -90,69 +64,22 @@
                                         </thead>
              
                                     <tbody>
-            
-                                        <tr>
-                                            <td>Vista Hermosa</td>
-                                            <td>Xalapa, Veracruz</td>
-                                            <td>12/12/2019</td>
-                                            <td>En proceso </td>
-                                            <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                                            <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
+                                        <tr *ngFor="let report of reports">
+                                            <td>{{report.nombre_de_tienda}}</td>
+                                            <td>{{report.ciudad}}</td>
+                                            <td>{{report.__ingreso | date:"dd/MM/yyyy"}}</td>
+                                            <td>{{report.estatus}}</td>
+                                            <td>
+                                              <i (click)="editReport(report.id_reporte)"
+                                                   class="[ material-icons ] iconItem -color-primary -small">
+                                                visibility</i>
+                                            </td>
+                                            <td>
+                                              <i (click)="deleteReport(report)"
+                                                   class="[ material-icons ] iconItem -color-tertiary -small">
+                                                delete</i>
+                                            </td>
                                         </tr>
-            
-                                        <tr>
-                                            <td>Vista Hermosa</td>
-                                            <td>Xalapa, Veracruz</td>
-                                            <td>12/12/2019</td>
-                                            <td>Relizado </td>
-                                            <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                                            <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                                        </tr>
-            
-                                        <tr>
-                                            <td>Vista Hermosa</td>
-                                            <td>Xalapa, Veracruz</td>
-                                            <td>12/12/2019</td>
-                                            <td>Relizado </td>
-                                            <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                                            <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                                        </tr>
-            
-                                        <tr>
-                                            <td>Vista Hermosa</td>
-                                            <td>Xalapa, Veracruz</td>
-                                            <td>12/12/2019</td>
-                                            <td>Relizado </td>
-                                            <td><i class="[ material-icons ] iconItem -color-primary -small" > visibility </i>  </td>
-                                            <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete </i>  </td>
-                                        </tr>
-            
-                                        <tr>
-                                            <td>Vista Hermosa</td>
-                                            <td>Xalapa, Veracruz</td>
-                                            <td>12/12/2019</td>
-                                            <td>En proceso </td>
-                                            <td><i class="[ material-icons ] iconItem -color-primary -small" > visibility </i>  </td>
-                                            <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete </i>  </td>
-                                        </tr>
-            
-                                        <tr>
-                                            <td>Vista Hermosa</td>
-                                            <td>Xalapa, Veracruz</td>
-                                            <td>12/12/2019</td>
-                                            <td>En proceso </td>
-                                            <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                                            <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vista Hermosa</td>
-                                            <td>Xalapa, Veracruz</td>
-                                            <td>12/12/2019</td>
-                                            <td>En proceso </td>
-                                            <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                                            <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                                        </tr>
-            
                                     </tbody>
                                 </table>
                             </div>    

@@ -5,7 +5,7 @@
 
         <div class="[ navbar-item ]" id="navbarCollapse">
 
-          <a class="link-logo" href="/">
+          <a class="link-logo" routerLink="/dashboard">
               <img  class="imageLogo" [src]="DAIRMEX_LOGO"  alt="Dairmex">
           </a>
          
@@ -13,7 +13,7 @@
           
             <!-- datos usurio -->
             <li class="[ nav-item ]">
-              <p class="textItem">Alejandra López Peres</p>
+              <p class="textItem">{{userName}}</p>
               <figure class="content-image">
                 <img class="imageItem" [src]="ADMIN_ICON"  alt="Dairmex">
               </figure>
@@ -21,7 +21,7 @@
 
             
             <li class="[ nav-item ]">
-              <button class="btn">
+              <button class="btn" (click)="logout()">
                 <i class="[ material-icons ] iconItem -color-white"> exit_to_app </i>  
               </button>
             </li>

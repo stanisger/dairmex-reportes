@@ -1,0 +1,25 @@
+<div class="card mb-4 shadow-sm">
+    <div class="card-header">
+      <h3 class="my-0 font-weight-normal">Generar Reporte</h3>
+    </div>
+    <div class="card-body">
+       <form action="generate-report">
+
+            <div class="form-label-group">
+                <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="storeName" type="text" id="inputNameStore" class="form-control" placeholder="Nombre de tienda" required="" >
+            </div>
+
+
+            <div class="form-label-group">
+            <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="city" type="text" id="inputCity" class="form-control" placeholder="Ciudad" >
+            </div>
+
+            <div class="form-label-group">
+              <input  [ngModelOptions]="{standalone: true}" [(ngModel)]="description" type="text" class="form-control" placeholder="Descriptivo" >
+
+            </div>
+
+           <button type="button" [disabled]="!(storeName && city)" [ngClass]='{"-btn-disabled": !(storeName && city)}' (click)="insertReport()" class="btn  btn-block -btn-primary">Generar</button>
+       </form>
+    </div>
+  </div>

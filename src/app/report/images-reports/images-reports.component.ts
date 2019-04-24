@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Report } from 'src/app/common/models/report';
 
 @Component({
   selector: 'app-images-reports',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./images-reports.component.scss']
 })
 export class ImagesReportsComponent implements OnInit {
+
+  @Input() report: Report;
 
   constructor() { }
 

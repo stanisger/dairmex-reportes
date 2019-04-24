@@ -9,14 +9,23 @@
   </div>
 
   <div class="form-label-group">
-    <input type="text" id="inputUser" class="form-control" placeholder="Usuario" required="" >
+    <input [(ngModel)]="user" [ngModelOptions]="{standalone: true}" 
+           type="text" id="inputUser" class="form-control" placeholder="Usuario" required>
   </div>
 
   <div class="form-label-group">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required="">
+    <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" 
+           type="password" id="inputPassword" class="form-control" 
+           autocomplete="false" placeholder="Contraseña" required>
   </div>
 
-  <button class="btn -btn-primary btn-block" routerLink="/dashboard" type="submit">Ingresar</button>
+  <button (click)="getSession()" class="btn -btn-primary btn-block" type="button">Ingresar</button>
   <p class="mt-5 mb-3 text-muted text-center">© 2017-2019</p>
 
 </form>
+<div class="spinner-container" *ngIf="showSpinner">
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>

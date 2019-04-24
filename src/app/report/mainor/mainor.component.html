@@ -1,104 +1,18 @@
 <article class="section-mainor">
 
   <div class="card-deck mb-3 text-center">
-    
-    <!-- card -->
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h3 class="my-0 font-weight-normal">Check list</h3>
-      </div>
-      <div class="card-body">
-          <div class="table-responsive">
 
-              <table class="table table-striped table-sm">
-                  <tbody>
-                      <tr>
-                          <td>Check list</td>
-                          <td>12/12/2019</td>
-                          <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                          <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                      </tr>  
-                    </tbody>
-                  </table>
-                  
-                  <div class="input-group -file">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                        <label class="custom-file-label" for="inputGroupFile04">Subir Archivo</label>
-                      </div>
-                    </div> 
-          </div>   
-      </div>
-    </div>
-  
-  
-    <!-- card -->
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h3 class="my-0 font-weight-normal">Orden de Compra </h3>
-      </div>
-      <div class="card-body">
-          <table class="table table-striped table-sm">
-              <tbody>
-                  <tr>
-                      <td>Acta de entrega</td>
-                      <td>12/12/2019</td>
-                      <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                      <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                  </tr>
+    <app-card-files 
+      class="card mb-4 shadow-sm" 
+      [title]="'Check List'"
+      [report]="report"
+      [path]="'check-list'"></app-card-files>
 
-                </tbody>
-              </table>
-          <div class="input-group -file">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                <label class="custom-file-label" for="inputGroupFile04">Subir Archivo</label>
-              </div>
-            </div> 
-      </div>
-    </div>
-  
-    <!-- card -->
-    <div class="card mb-4 shadow-sm">
-      <div class="card-header">
-        <h3 class="my-0 font-weight-normal">Factura</h3>
-      </div>
-      <div class="card-body">
-          <table class="table table-striped table-sm">
-              <tbody>
-                  <tr>
-                      <td>Plano 1</td>
-                      <td>12/12/2019</td>
-                      <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                      <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                  </tr>
+    <app-card-files 
+      class="card mb-4 shadow-sm" 
+      [title]="'Factura'"
+      [report]="report"
+      [path]="'factura'"></app-card-files>
 
-                  <tr>
-                      <td>plano 2</td>
-                      <td>12/12/2019</td>
-                      <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                      <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                  </tr>
-
-                  <tr>
-                      <td>Plano 3</td>
-                      <td>12/12/2019</td>
-                      <td><i class="[ material-icons ] iconItem -color-primary -small"> visibility </i>  </td>
-                      <td><i class="[ material-icons ] iconItem -color-tertiary -small"> delete</i>  </td>
-                  </tr>
-
-                </tbody>
-          </table>
-
-
-          <div class="input-group -file">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                <label class="custom-file-label" for="inputGroupFile04">Subir Archivo</label>
-              </div>
-            </div> 
-      </div>
-    </div>
-  
   </div>
 </article>
