@@ -7,6 +7,21 @@ import { Base64Utils } from '../utils/base64';
 @Injectable()
 export class FilesService {
   
+  addFile(file){
+    console.log(file)
+    return fetch(
+      `${ENV.apiFiles}`, {
+          method: 'POST',
+          headers:new Headers({
+            'Authorization': `Basic ${ENV.filesAPIToken}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          }),
+          body: JSON.stringify(file)
+      }
+    ).then(res => res.json());
+  }
+
   addFilesToPath(files, path: string): Promise<Array<File>> {
       return fetch(
         `${ENV.apiFiles}/ubicacion/${Base64Utils.utf8_to_b64(path)}`,{

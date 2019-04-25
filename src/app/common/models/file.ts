@@ -7,7 +7,7 @@ export class File {
     extension:  string;
     tipoMIME:   string;
     contenido?: string;
-    //fechaDeInsercion?: string;
+    fechaDeInsercion?: string;
 
     constructor (descriptor, contenidoB64: string) {
         var descripción = descriptor.name.split('.'),

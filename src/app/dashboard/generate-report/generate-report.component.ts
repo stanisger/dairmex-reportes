@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from 'src/app/common/services/projects.service';
 import { Report } from 'src/app/common/models/report';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-generate-report',
@@ -16,7 +17,8 @@ export class GenerateReportComponent implements OnInit {
 
   constructor(
     private _servProjects: ProjectsService,
-    private _router: Router
+    private _router: Router,
+    private _toast: ToastrService,
   ) { }
 
   ngOnInit() {
@@ -25,8 +27,8 @@ export class GenerateReportComponent implements OnInit {
   insertReport(){
     this._servProjects
     .addReport(new Report(this.storeName, this.city, this.description))
-    .then(()=>alert('Reporte agredo correctamente'))
-    .catch(()=>alert('Ocurrió un problema al agregar el nuevo reporte.'))
-    .finally(()=>this._router.navigate(['login']));
+    .then(() => this._toast.success('Reporte agregado correctamente'))
+    .catch(() => this._toast.error('Ocurrió un problema al agregar el nuevo reporte.'))
+    .finally(() => this._router.navigate(['login']));
   }
 }

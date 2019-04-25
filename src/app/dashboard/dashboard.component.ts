@@ -4,6 +4,7 @@ import { ProjectsService } from '../common/services/projects.service';
 import { Report } from '../common/models/report';
 import { Router } from '@angular/router';
 import { FilesService } from '../common/services/files.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,7 @@ export class DashboardComponent implements OnInit {
 
   model: NgbDateStruct;
   date: {year: number, month: number};
+  public showSpinner = false;
   public reports: Array<Report> = new Array<Report>();
 
   constructor(
@@ -21,6 +23,7 @@ export class DashboardComponent implements OnInit {
     private _servProjects: ProjectsService,
     private _servFiles: FilesService,
     private _router: Router,
+    private _toast: ToastrService,
   ) {}
 
   selectToday() {
@@ -28,9 +31,12 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.showSpinner = true;
+    this._toast.warning('Obteniendo los reportes de proyectos...')
     this._servProjects
     .getReports()
     .then( reports => this.reports=reports)
+    .finally(()=>this.showSpinner=false);
   }
 
   deleteReport(report: Report) {
@@ -39,8 +45,8 @@ export class DashboardComponent implements OnInit {
       && this._servProjects
       .deleteReport(report.id_reporte)
       .then(() => this._servFiles.deleteFilesByPath(projectPath))
-      .then(() => alert('Reporte eliminado correctamente'))
-      .catch(()=> alert('Ocurrió un problema al eliminar el reporte solicitado.'))
+      .then(() => this._toast.success('Reporte eliminado correctamente'))
+      .catch(()=> this._toast.error('Ocurrió un problema al eliminar el reporte solicitado.'))
       .finally(()=>this._router.navigate(['/login']));
   }
 

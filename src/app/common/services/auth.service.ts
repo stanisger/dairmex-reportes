@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from './sesion.service';
 import { Credentials } from '../models/credentials';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Injectable()
 export class AuthService {
@@ -11,6 +13,7 @@ export class AuthService {
     constructor(
         private _servSession: SessionService,
         private _router: Router,
+        private _toast: ToastrService,
     ){
         this.initCredentials();
     }
@@ -36,16 +39,16 @@ export class AuthService {
         .login(user, password)
         .then( credentials => {
             if (credentials.codigo == 401 ) { 
-                alert('Credenciales de acceso incorrectas.'); 
+                this._toast.error('Credenciales de acceso incorrectas.'); 
                 return;
             }
 
             this.setCredentials(credentials);
-            alert(`Bienvenido ${credentials.username}`);
+            this._toast.success(`Bienvenido ${credentials.username}`);
             this._router.navigate(['/dashboard']);
         })
         .catch(()=>{
-            alert('Problemas al validar la sesion.');
+            this._toast.error('Problemas al validar la sesion.');
         });
     }
 
