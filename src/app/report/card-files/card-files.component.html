@@ -32,17 +32,17 @@
           </tr>
           </tbody>
         </table>
-        
+         <hr>
         <div class="input-group -file">
             <div class="custom-file">
               <input type="file" (change)="addFileToUpload($event)"
                   class="custom-file-input"
                   aria-describedby="inputGroupFileAddon04">
-              <label class="custom-file-label" for="inputGroupFile04">Subir Archivo</label>
+              <label class="custom-file-label" for="inputGroupFile04"></label>
             </div>
-        </div>
-        <button type="button" class="btn btn-primary" (click)="uploadFiles()"><i class="[ material-icons ] iconItem -small" style="position:relative; top: 4px;margin-right: 6px;">cloud</i>cargar archivos</button>
-    </div>   
+          </div>
+          <button type="button" class="btn -btn-primary-outline" (click)="uploadFiles()">Cargar archivos</button>
+      </div>   
   </div>
 
 

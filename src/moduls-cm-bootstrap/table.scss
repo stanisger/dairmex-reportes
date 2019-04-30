@@ -1,5 +1,10 @@
+.table-responsive {
+    overflow: hidden;
+}
+
 table {
     font-size: .85rem;
+    
 
     @media (max-width: rem(576px)) { 
         font-size: .8rem;

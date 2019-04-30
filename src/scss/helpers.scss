@@ -9,6 +9,7 @@
 .cm-font-bg { background-color: $primary-color;}
 .cm-white-bg { background-color: $color-white;}
 .cm-black-bg { background-color: $color-black;}
+.cm-lightGrey-bg { background-color: $gray-medium;}
 
 .no-gutters {
   padding: 0 !important;
@@ -81,6 +82,10 @@
 }
 
 /* Paddings */
+.p-10 {
+  padding: rem(10px) !important;
+}
+
 .p-30 {
   padding: rem(30px) !important;
 }

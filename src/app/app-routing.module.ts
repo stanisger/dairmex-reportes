@@ -8,8 +8,8 @@ import { CommonUserGuard } from './common/guards/common-user.guard';
 const routes: Routes = [
   { path: '',          component: LoginComponent },
   { path: 'login',     component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [CommonUserGuard] },
-  { path: 'report',    component: ReportComponent, canActivate: [CommonUserGuard] },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'report',    component: ReportComponent },
 ];
 
 @NgModule({

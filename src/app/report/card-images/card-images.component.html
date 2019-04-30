@@ -8,7 +8,7 @@
     </div>
 
     <div class="brick" *ngFor="let image of filesToUpload">
-      <img [src]="image.temporalPath" alt="Cherry plant" title="image.name">
+      <img [src]="image.temporalPath" alt="Cherry plant" title="image.name"> 
     </div>
   </div>
 
@@ -19,7 +19,7 @@
   <label class="custom-file-label" for="inputGroupFile04">Subir Fotografía</label>
   </div>
   </div> 
-  <button type="button" class="btn btn-primary" (click)="uploadFiles()"><i class="[ material-icons ] iconItem -small" style="position:relative; top: 4px;margin-right: 6px;">cloud</i>cargar archivos</button>
+  <button type="button" class="btn -btn-primary-outline" (click)="uploadFiles()">Cargar archivos</button>
 
 <div class="spinner-container" *ngIf="showSpinner">
   <div class="spinner">

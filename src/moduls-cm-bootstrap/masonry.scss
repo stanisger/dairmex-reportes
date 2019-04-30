@@ -3,7 +3,7 @@
   margin: 1rem 0;
   transition: all .5s ease-in-out;
   column-gap: .5rem;
-  column-count: 3;
+  column-count: 2;
 }
 
 /* Masonry item */
@@ -17,6 +17,7 @@
 .masonry .brick img {
   width: 100%;
   transition: all .5s ease-in-out;
+  border: 1px solid $tertiary-color;
   backface-visibility: hidden; /* Remove Image flickering on hover */
 }
 
@@ -56,9 +57,5 @@
 
   .intro {
     letter-spacing: 1px;
-  }
-
-  .masonry {
-    column-count: 3;
   }
 }

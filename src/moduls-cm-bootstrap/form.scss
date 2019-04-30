@@ -54,19 +54,22 @@
 .input-group {
 
     &.-file {
-        margin: 2rem 0 ;
+        margin: 0;
     }
 
     .custom-file {
-
+        
         label {
+            border: 0;
             font-size: .85rem;
-            text-align: left;
+            text-align: center;
 
             &:after {
                 background: $tertiary-color;
+                border-radius: 0;
+                content: 'Elegir archivos' !important;
                 color: $color-white;
-                content: 'Elegir' !important;
+                width: 100%;
             }
         }
     }
