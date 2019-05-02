@@ -37,4 +37,15 @@ export class ReportComponent implements OnInit {
   getProjectPath() {
     return Report.getProjectPath(this.report);
   }
+
+  printReport() {
+    let t1 = window.open("print-report")
+    t1.onload=(function () {
+      t1.print()
+      setTimeout(function () {
+        t1.close()
+      }, 1700)
+    })
+
+  }
 }
