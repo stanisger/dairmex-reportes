@@ -26,6 +26,7 @@ import { GenerateReportComponent } from './dashboard/generate-report/generate-re
 import { CardFilesComponent } from './report/card-files/card-files.component';
 import { CardImagesComponent } from './report/card-images/card-images.component';
 import { SpinnerComponent } from './common/spinner/spinner.component';
+import { BtnSaveComponent } from './report/btn-save/btn-save.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { SpinnerComponent } from './common/spinner/spinner.component';
     CardFilesComponent,
     CardImagesComponent,
     SpinnerComponent,
+    BtnSaveComponent,
   ],
   imports: [
     BrowserModule,

@@ -88,6 +88,9 @@
 
 .p-30 {
   padding: rem(30px) !important;
+    @media (max-width: 600px) {
+      padding: rem(30px) 0 !important;
+  }
 }
 
 .pt-30 {
@@ -104,6 +107,9 @@
 
 .pl-20 {
   padding-left: rem(20px) !important;
+}
+.pb-20 {
+  padding-bottom: rem(20px) !important;
 }
 
 /*Borders */

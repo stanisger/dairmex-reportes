@@ -24,11 +24,15 @@
     }
 
     &.-color-tertiary {
-        color: red;
+        color: $tertiary-color;
     }
 
     &.-color-white {
         color: $color-white;
+    }
+
+    &.-color-grey {
+        color: $secondary-color;
     }
 
     
@@ -63,16 +67,69 @@
             border: 0;
             font-size: .85rem;
             text-align: center;
+            cursor: pointer;
 
             &:after {
                 background: $tertiary-color;
                 border-radius: 0;
                 content: 'Elegir archivos' !important;
                 color: $color-white;
+                transition: background .7rem;
                 width: 100%;
+            }
+
+            &:hover {
+                &:after {
+                    background: $color-hover;
+                }
             }
         }
     }
 }
+
+
+.print-check {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    
+    &.-print-gallery {
+        top: 2rem;
+        right: 2rem;
+    }
+    
+    input[type="checkbox"][id^="cb"] {
+      display: none;
+    }
+
+    label {
+      cursor: pointer;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+    i {
+        color: $gray-light;
+        transition:all .4s;
+      }
+    }
+
+    :checked+label i {
+        color: $succes-color;
+      }
+}
+  
+  
+  
+  
+  
+
+  
+
+  
+
 
 

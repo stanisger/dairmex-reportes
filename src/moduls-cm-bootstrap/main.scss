@@ -9,6 +9,7 @@
 @import 'table';
 @import 'card';
 @import 'masonry';
+@import 'modal';
 // @import 'banner-full-image';
 // @import 'hero';
 // @import 'title-section';
@@ -17,3 +18,7 @@
 // @import 'nav-bar';
 // @import 'pagination';
 // @import 'profile-advance';
+
+.container {
+    max-width: 100% !important;
+}

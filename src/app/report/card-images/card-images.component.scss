@@ -1,0 +1,35 @@
+@import '/../../../scss/variables';
+@import '/../../../scss/mixins';
+@import '/../../../scss/rem';
+.brick {
+    img {
+        border-bottom: 6px solid $danger-color; 
+    }
+    &.up {
+        img {
+            border-bottom: 6px solid $succes-color;
+        }
+    }
+}
+
+.brick-tools-small {
+    background: $primary-color;
+    color: $color-white;
+    display: flex;
+    text-align: left;
+    line-height: .9rem;
+    font-size: .65rem;
+    padding: .5rem;
+    letter-spacing: -.02rem;
+}
+
+.brick-tools {
+    padding: .4rem .2rem .1rem;
+    background: $iron;
+
+    i {
+        width: 50%;
+        cursor: pointer;
+    }
+
+}

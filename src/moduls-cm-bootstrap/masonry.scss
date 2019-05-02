@@ -8,6 +8,7 @@
 
 /* Masonry item */
 .masonry .brick {
+  border: 1px solid $gray-light;
   margin-bottom: .5rem;
   display: inline-block; /* Fix the misalignment of items */
   vertical-align: top; /* Keep the item on the very top */
@@ -17,7 +18,6 @@
 .masonry .brick img {
   width: 100%;
   transition: all .5s ease-in-out;
-  border: 1px solid $tertiary-color;
   backface-visibility: hidden; /* Remove Image flickering on hover */
 }
 
