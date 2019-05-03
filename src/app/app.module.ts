@@ -27,6 +27,7 @@ import { CardFilesComponent } from './report/card-files/card-files.component';
 import { CardImagesComponent } from './report/card-images/card-images.component';
 import { SpinnerComponent } from './common/spinner/spinner.component';
 import { PrintReportComponent } from './print-report/print-report.component';
+import { BtnSaveComponent } from './report/btn-save/btn-save.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,11 @@ import { PrintReportComponent } from './print-report/print-report.component';
     CardFilesComponent,
     CardImagesComponent,
     SpinnerComponent,
+<<<<<<< HEAD
     PrintReportComponent,
+=======
+    BtnSaveComponent,
+>>>>>>> master
   ],
   imports: [
     BrowserModule,

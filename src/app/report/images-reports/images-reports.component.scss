@@ -3,12 +3,14 @@
 @import '/../../../scss/rem';
 
 .section-imagesReport {
-    padding: 4rem 2rem;
+    padding: 4rem 0;
 
     @media (max-width: rem(576px)) {
         padding: 1.5rem 1rem;
     }
-
+    .card {
+        margin: 0;
+    }
     .card-body {
         padding: 2rem 0;
 

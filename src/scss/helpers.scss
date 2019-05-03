@@ -9,6 +9,7 @@
 .cm-font-bg { background-color: $primary-color;}
 .cm-white-bg { background-color: $color-white;}
 .cm-black-bg { background-color: $color-black;}
+.cm-lightGrey-bg { background-color: $gray-medium;}
 
 .no-gutters {
   padding: 0 !important;
@@ -81,8 +82,15 @@
 }
 
 /* Paddings */
+.p-10 {
+  padding: rem(10px) !important;
+}
+
 .p-30 {
   padding: rem(30px) !important;
+    @media (max-width: 600px) {
+      padding: rem(30px) 0 !important;
+  }
 }
 
 .pt-30 {
@@ -99,6 +107,9 @@
 
 .pl-20 {
   padding-left: rem(20px) !important;
+}
+.pb-20 {
+  padding-bottom: rem(20px) !important;
 }
 
 /*Borders */

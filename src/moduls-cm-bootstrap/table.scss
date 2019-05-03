@@ -1,5 +1,10 @@
+.table-responsive {
+    overflow: hidden;
+}
+
 table {
     font-size: .85rem;
+    
 
     @media (max-width: rem(576px)) { 
         font-size: .8rem;
@@ -11,6 +16,38 @@ table {
         padding: 1rem;
     }
     tbody {
+        tr{
+           color: $secondary-color;
+
+            td {
+                padding: .5rem 0 !important;
+            }
+        } 
+
+        tr.archive {
+            position: relative;
+            color:  $mischka;
+
+            td {
+                padding: .5rem 0 !important;
+            }
+
+            &:after {
+                background: $danger-color;
+                content: '';
+                height: 2.5rem;
+                position: absolute;
+                left: 1rem;
+                width: .5rem;
+            }
+
+            &.up {
+                color:  $secondary-color;
+                &:after {
+                    background: $succes-color;
+                }
+            }
+        } 
         tr:nth-of-type(odd) {
             background: $iron;
         }

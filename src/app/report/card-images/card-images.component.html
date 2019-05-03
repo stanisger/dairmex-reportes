@@ -1,25 +1,35 @@
   <span>{{title}}</span>
+  
+  <span class="print-check -print-gallery">
+      <input type="checkbox" id="cb1" />
+      <label for="cb1">  <i class="material-icons"> local_printshop</i></label>
+    </span>
 
   <!-- galeria -->
   <div class="masonry">
 
-    <div class="brick" *ngFor="let image of filesUploaded">
+    <div class="brick up" *ngFor="let image of filesUploaded">
       <img [src]="getLink(image)" alt="Cherry plant" title="image.nombre">
+      
+        <div class="brick-tools">
+          <i class="[ material-icons ] iconItem -color-primary -small" (click)="open(content)">visibility</i>
+          <i class="[ material-icons ] iconItem -color-tertiary -small">delete</i>
+        </div>
     </div>
 
     <div class="brick" *ngFor="let image of filesToUpload">
-      <img [src]="image.temporalPath" alt="Cherry plant" title="image.name">
+      <img [src]="image.temporalPath" alt="Cherry plant" title="image.name"> 
     </div>
   </div>
 
   <!-- btn -->
   <div class="input-group -file">
-  <div class="custom-file">
-  <input type="file" (change)="addFileToUpload($event)" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-  <label class="custom-file-label" for="inputGroupFile04">Subir Fotografía</label>
-  </div>
+    <div class="custom-file">
+      <input type="file" (change)="addFileToUpload($event)" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+      <label class="custom-file-label" for="inputGroupFile04">Subir Fotografía</label>
+    </div>
   </div> 
-  <button type="button" class="btn btn-primary" (click)="uploadFiles()"><i class="[ material-icons ] iconItem -small" style="position:relative; top: 4px;margin-right: 6px;">cloud</i>cargar archivos</button>
+  <button type="button" class="btn -btn-primary-outline" (click)="uploadFiles()">Cargar archivos</button>
 
 <div class="spinner-container" *ngIf="showSpinner">
   <div class="spinner">
@@ -27,3 +37,26 @@
     <div class="double-bounce2-1"></div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Detalle de Imagen</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+       <img src="http://18.219.75.4/contenedor/282.jpg" alt="">
+    </div>
+    <div class="modal-footer">
+      <textarea name="" id="" cols="30" rows="10" placeholder="Añadir comentario"></textarea>
+     <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perferendis aperiam dicta maxime veniam corporis totam harum distinctio repellendus cupiditate odio sapiente eaque itaque labor.</p> -->
+    </div>
+    <br>
+    <div class="[ row ] pb-20">
+        <div class="col-sm-12 col-lg-4 offset-lg-4">
+          <button type="button" class="btn -btn-primary">GUARDAR CAMBIOS</button>
+        </div>     
+      </div>
+</ng-template>
+ 

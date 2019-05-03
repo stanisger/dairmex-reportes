@@ -1,5 +1,4 @@
 <app-header></app-header>
-
 <section class="reporte-item">
   <div *ngIf="report" class="container">
     <app-breadcrumb [report]="report"></app-breadcrumb>
@@ -7,6 +6,8 @@
     <app-main [report]="report"></app-main>
     <app-images-reports [report]="report"></app-images-reports>
     <app-mainor [report]="report"></app-mainor>
+    <hr>
+    <app-btn-save></app-btn-save>
   </div>
   <button (click)="printReport()" class="button success">imprimir</button>
 </section>

@@ -1,0 +1,21 @@
+.modal-content {
+    max-width: 820px;
+    margin: auto;
+
+    .modal-body {
+        img {
+            width: 100%;
+        }
+    }
+
+    .modal-footer {
+
+        textarea{
+            border: 1px solid $secondary-color;
+            height: 6rem;
+            padding: 1rem;
+            width: 100%;
+        }
+        
+    }
+}
