@@ -7,6 +7,7 @@ export class File {
     extension:  string;
     tipoMIME:   string;
     contenido?: string;
+    comentario?: string='';
     fechaDeInsercion?: string;
 
     constructor (descriptor, contenidoB64: string) {

@@ -39,13 +39,15 @@ export class ReportComponent implements OnInit {
   }
 
   printReport() {
-    let t1 = window.open("print-report")
-    t1.onload=(function () {
-      t1.print()
-      setTimeout(function () {
-        t1.close()
-      }, 1700)
-    })
+    let t1 = window.open(`print-report;idReport=${this.report.id_reporte}`)
+    //setTimeout(()=>{
+    //t1.onload=(function () {  
+    //  t1.print()
+    //  setTimeout(function () {
+    //    t1.close()
+    //  }, 1500)
+    //})
+    //}, 500)
 
   }
 }

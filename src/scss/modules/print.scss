@@ -1,0 +1,108 @@
+.hoja {
+  z-index: 1;
+}
+.cs-print-btn {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  z-index: 9999;
+  background: rgb(218, 85, 81);
+  color: white;
+  font-weight: 400;
+  box-shadow: 0 5px 8px rgba(0,0,0,0.19),
+              0 2px 6px rgba(0,0,0,0.23);
+  border: none;
+}
+
+.cs-print-btn:hover{
+  background: rgb(211, 96, 92);
+}
+/**https://stackoverflow.com/questions/2573603/removing-page-title-and-date-when-printing-web-page-with-css*/
+@media print{
+    .print--hidden{
+      display: none !important;
+    }
+
+    html, body.printer {
+        position: absolute; 
+        top:  0;
+        left: 0;
+        width: fit-content !important;
+        min-width: 0!important;
+        height: fit-content !important;
+        size: letter;
+    }
+    
+    @page {
+      margin:  0;
+      padding: 0;
+      size: letter;
+    }
+  
+    * {
+      margin: 0;
+      padding: 0;
+    }
+}
+
+  .hoja {
+    display: block;
+    height: 279mm !important;
+    width:  216mm !important;
+  }
+
+  .hoja.con-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .columna {
+    display:         flex;
+    flex-direction:  column;
+    align-items:     center;
+    justify-content: start;
+  }
+  
+  .contenido-principal {
+    height: 259mm;
+    width:  184mm;
+  }
+  
+  .contenido-de-malla  {
+    height:  71mm;
+    width:  184mm;
+  }
+  
+  .título-principal,
+  .título-secundario {
+    font-family: 'Arial';
+  }
+  
+  .título-principal {
+    font-size: 9mm;
+  }
+  
+  .título-secundario {
+    font-size: 6mm;
+    min-height: 6mm;
+    margin: 2mm 0;
+  }
+  
+  .contenido-de-malla {
+    display: grid;
+    grid-column-gap: 15mm;
+    margin-bottom:    1mm;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows:    1fr;
+  }
+  
+  .contenido-de-malla figure img{
+    width:  51mm !important;
+    height: 46mm !important;
+  }
+
+  .contenido-de-malla figure figcaption{
+      font-size: 3.5mm;
+  }

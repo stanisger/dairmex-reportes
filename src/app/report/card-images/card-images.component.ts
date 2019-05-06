@@ -16,7 +16,11 @@ export class CardImagesComponent  extends FilesComponentAstract implements  OnIn
   @Input() report: Report;
   @Input() path: string;
   @Input() title: string
-
+  public selectedImage;
+  public availableChars=0;
+  public closeResult: string;
+  public comentario='';
+  
   constructor(
     public _servFiles: FilesService,
     public _sanitizer: DomSanitizer,
@@ -29,25 +33,32 @@ export class CardImagesComponent  extends FilesComponentAstract implements  OnIn
     this.getFilesUploaded();
   }
 
-  closeResult: string;
+  
 
-  public open(content) {
-    
+  public open(content, image) {
+    console.log(image)
+    this.selectedImage = image;
+    this.comentario = this.selectedImage.comentario || '';
+    this.availableChars = 130- this.comentario.length;
+
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+  
+  onChangeText() {
+    this.availableChars = 130-this.comentario.length;
+  }
 
-  public getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
+  public close(){
+    this._toast.warning('Actualizando comentario ...', '');
+    this.modalService.dismissAll();
+    this.selectedImage.comentario = this.comentario;
+
+    this._servFiles.updateFile(this.selectedImage)
+    .then(()=>this._toast.success('Comentario agregado correctamente', ''))
+
   }
 }
 

@@ -7,8 +7,7 @@
     <app-images-reports [report]="report"></app-images-reports>
     <app-mainor [report]="report"></app-mainor>
     <hr>
-    <app-btn-save></app-btn-save>
+    <app-btn-save (click)="printReport()"></app-btn-save>
   </div>
-  <button (click)="printReport()" class="button success">imprimir</button>
 </section>
 

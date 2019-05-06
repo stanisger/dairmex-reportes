@@ -46,11 +46,8 @@ import { BtnSaveComponent } from './report/btn-save/btn-save.component';
     CardFilesComponent,
     CardImagesComponent,
     SpinnerComponent,
-<<<<<<< HEAD
     PrintReportComponent,
-=======
     BtnSaveComponent,
->>>>>>> master
   ],
   imports: [
     BrowserModule,

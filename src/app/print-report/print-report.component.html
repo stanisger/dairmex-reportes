@@ -1,3 +1,58 @@
-<p>
-  print-report works!
-</p>
+    <button
+      class="print--hidden cs-print-btn"
+      (click)="print()">
+        IMPRIMIR DOCUMENTO
+    </button>
+    <img 
+      *ngFor="let file of getFilesFromFolder('presupuesto')" 
+      class="hoja" [src]="getLink(file)">
+    <img 
+      *ngFor="let file of getFilesFromFolder('orden-de-compra')" 
+      class="hoja" [src]="getLink(file)">
+    
+    <div class="hoja con-contenido" *ngFor="let file of getFilesFromFolder('planos')">
+      <img class="contenido-principal" [src]="getLink(file)">
+    </div>
+
+    <div class="hoja con-contenido" *ngFor="let sheet of getSheets('interior')">
+      <div class="contenido-principal columna">
+        <h1 *ngIf="sheet==1" class="título-principal">Estructura interior</h1>
+        
+        <div *ngFor="let group of getSheetsGroups('interior', sheet)">
+          <h2 class="título-secundario">{{printTitleGroup(group)}}</h2>
+          <div 
+            class="contenido-de-malla">
+            <figure *ngFor="let file of group">
+              <img [src]="getLink(file)" alt="Trulli">
+              <figcaption>{{file.comentario}}</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hoja con-contenido" *ngFor="let sheet of getSheets('exterior')">
+        <div class="contenido-principal columna">
+          <h1 *ngIf="sheet==1" class="título-principal">Estructura exterior</h1>
+          <div *ngFor="let group of getSheetsGroups('exterior', sheet)">
+            <h2 class="título-secundario">{{printTitleGroup(group)}}</h2>
+            <div 
+              class="contenido-de-malla">
+              <figure *ngFor="let file of group">
+                <img [src]="getLink(file)" alt="Trulli">
+                <figcaption>{{file.comentario}}</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  <img 
+    *ngFor="let file of getFilesFromFolder('check-list')" 
+    class="hoja" [src]="getLink(file)">
+  <img 
+    *ngFor="let file of getFilesFromFolder('alta-recepcion')" 
+    class="hoja" [src]="getLink(file)">
+  <img 
+    *ngFor="let file of getFilesFromFolder('factura')" 
+    class="hoja" [src]="getLink(file)">

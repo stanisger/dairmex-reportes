@@ -44,9 +44,9 @@ export class DashboardComponent implements OnInit {
       confirm('¿Realmente deseas eliminar este reporte?')
       && this._servProjects
       .deleteReport(report.id_reporte)
-      .then(() => this._servFiles.deleteFilesByPath(projectPath))
-      .then(() => this._toast.success('Reporte eliminado correctamente'))
-      .catch(()=> this._toast.error('Ocurrió un problema al eliminar el reporte solicitado.'))
+      .then( () => this._servFiles.deleteFilesByPath(projectPath))
+      .then( () => this._toast.success('Reporte eliminado correctamente'))
+      .catch(() => this._toast.error('Ocurrió un problema al eliminar el reporte solicitado.'))
       .finally(()=>this._router.navigate(['/login']));
   }
 

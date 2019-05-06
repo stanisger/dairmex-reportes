@@ -8,10 +8,23 @@ import { Base64Utils } from '../utils/base64';
 export class FilesService {
   
   addFile(file){
-    console.log(file)
     return fetch(
       `${ENV.apiFiles}`, {
           method: 'POST',
+          headers:new Headers({
+            'Authorization': `Basic ${ENV.filesAPIToken}`,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          }),
+          body: JSON.stringify(file)
+      }
+    ).then(res => res.json());
+  }
+
+  updateFile(file) {
+    return fetch(
+      `${ENV.apiFiles}/id/${file.id}`, {
+          method: 'PUT',
           headers:new Headers({
             'Authorization': `Basic ${ENV.filesAPIToken}`,
             'Content-Type': 'application/json',
@@ -63,6 +76,18 @@ export class FilesService {
     return fetch(
       `${ENV.apiFiles}/id/${idFile}`,{
           method: 'DELETE',
+          headers:new Headers({
+            'Authorization': `Basic ${ENV.filesAPIToken}`,
+            'Accept': 'application/json'
+          }),
+      }
+    ).then(res => res.json());
+  }
+
+  getFileByID(idFile: number): Promise<File>{
+    return fetch(
+      `${ENV.apiFiles}/id/${idFile}`,{
+          method: 'GET',
           headers:new Headers({
             'Authorization': `Basic ${ENV.filesAPIToken}`,
             'Accept': 'application/json'

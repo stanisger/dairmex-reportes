@@ -12,7 +12,7 @@
       <img [src]="getLink(image)" alt="Cherry plant" title="image.nombre">
       
         <div class="brick-tools">
-          <i class="[ material-icons ] iconItem -color-primary -small" (click)="open(content)">visibility</i>
+          <i class="[ material-icons ] iconItem -color-primary -small" (click)="open(content, image)">visibility</i>
           <i class="[ material-icons ] iconItem -color-tertiary -small">delete</i>
         </div>
     </div>
@@ -46,16 +46,20 @@
       </button>
     </div>
     <div class="modal-body">
-       <img src="http://18.219.75.4/contenedor/282.jpg" alt="">
+       <img [src]="getLink(selectedImage)" alt="">
     </div>
     <div class="modal-footer">
-      <textarea name="" id="" cols="30" rows="10" placeholder="Añadir comentario"></textarea>
+      <textarea (keyup)="onChangeText()" [(ngModel)]="comentario" [ngModelOptions]="{standalone: true}" name="" id="" cols="30" rows="10" placeholder="Añadir comentario"></textarea>
      <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perferendis aperiam dicta maxime veniam corporis totam harum distinctio repellendus cupiditate odio sapiente eaque itaque labor.</p> -->
     </div>
+    <div class="modal-footer">
+      <p style="width: 100%">Caracteres disponibles: {{availableChars}}</p>
+    </div>
+    
     <br>
     <div class="[ row ] pb-20">
         <div class="col-sm-12 col-lg-4 offset-lg-4">
-          <button type="button" class="btn -btn-primary">GUARDAR CAMBIOS</button>
+          <button type="button" (click)="close()" class="btn -btn-primary">GUARDAR CAMBIOS</button>
         </div>     
       </div>
 </ng-template>
