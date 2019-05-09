@@ -21,3 +21,24 @@
         }
     }
 }
+input {
+    width: 320px;
+    padding: .5rem;
+    border: 0;
+    text-align: center;
+
+    @media (max-width: rem(576px)) {
+        width: 200px; 
+    }
+}
+
+.iconItem {
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    @media (max-width: rem(576px)) {
+        right: .5rem;
+    }
+}
