@@ -1,0 +1,26 @@
+<!-- card -->
+<div class="card mb-4 shadow-sm">
+  <div class="card-header">
+    <h3 class="my-0 font-weight-normal">Busqueda de Reportes </h3>
+  </div>
+  <div class="card-body">
+          <form action="generate-report">
+          <div class="form-label-group">
+              <input [ngModelOptions]="{standalone: true}" [(ngModel)]="name" type="text" id="inputNameStore" class="form-control" placeholder="Nombre de Tienda" required="" >
+          </div>
+          <div class="form-label-group">
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="city" type="text" id="inputCity" class="form-control" placeholder="Ciudad" required="" >
+          </div>
+          <div class="form-label-group -icon">
+            <input [ngModelOptions]="{standalone: true}" [(ngModel)]="date" type="date" id="inputNameStore" class="form-control" placeholder="Fecha" required="" >
+          </div>
+          <button
+            type="button" class="btn btn-block -btn-primary"
+            [ngClass]="{'-btn-disabled': !city && !date && !name}"
+            [disabled]="!city && !date && !name"
+            (click)="filterReports()">
+              Buscar
+          </button>
+      </form>
+  </div>
+</div>

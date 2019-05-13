@@ -5,12 +5,14 @@ import { Report } from '../models/report';
 @Injectable()
 export class ProjectsService {
     
-    getReports(): Promise<Array<Report>> {
-        return fetch(ENV.apiProyects,{
+    getReports(name='', city='', date=''): Promise<Array<Report>> {
+        return fetch(
+          `${ENV.apiProyects}/reporte?fecha=${date}&ciudad=${city}&nombre=${name}`,
+          {
             method: 'GET',
             credentials: "include"
-          })
-        .then(res => res.json())
+          }
+        ).then(res => res.json());
     }
 
     deleteReport(idReport: number): Promise<Report> {

@@ -28,6 +28,11 @@ import { CardImagesComponent } from './report/card-images/card-images.component'
 import { SpinnerComponent } from './common/spinner/spinner.component';
 import { PrintReportComponent } from './print-report/print-report.component';
 import { BtnSaveComponent } from './report/btn-save/btn-save.component';
+import { ModalImageDetailsComponent } from './report/modal-image-details/modal-image-details.component';
+import { ModalAddEquipmentComponent } from './report/modal-add-equipment/modal-add-equipment.component';
+import { BtnAddEquipmentComponent } from './report/btn-add-equipment/btn-add-equipment.component';
+import { EquipmentsService } from './common/services/equipments.service';
+import { FilterReportComponent } from './dashboard/filter-report/filter-report.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,10 @@ import { BtnSaveComponent } from './report/btn-save/btn-save.component';
     SpinnerComponent,
     PrintReportComponent,
     BtnSaveComponent,
+    ModalImageDetailsComponent,
+    ModalAddEquipmentComponent,
+    BtnAddEquipmentComponent,
+    FilterReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,9 +72,14 @@ import { BtnSaveComponent } from './report/btn-save/btn-save.component';
     SessionService,
     FilesService,
     AuthService,
-    CommonUserGuard
+    CommonUserGuard,
+    EquipmentsService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    ModalImageDetailsComponent,
+    ModalAddEquipmentComponent
+  ]
 })
 export class AppModule { }
 

@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Agregar nuevo equipo</h4>
+  <button type="button" class="close" aria-label="Close" (click)="_servActiveModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label>Nombre del equipo</label>
+      <div class="input-group">
+        <input type="text" class="form-control"
+          [(ngModel)]="equipmentName" [ngModelOptions]="{standalone: true}">
+      </div>
+      <label for="equipment-type">Tipo de equipo</label>
+      <div class="input-group">
+        <select class="custom-select" [(ngModel)]="equipmentType" [ngModelOptions]="{standalone: true}">
+          <option value="interno">Interior</option>
+          <option value="externo">Exterior</option>
+          <option value="ambos">Ambos</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="addEquipment()">Agregar</button>
+</div>

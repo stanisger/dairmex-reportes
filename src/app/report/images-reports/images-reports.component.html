@@ -1,21 +1,5 @@
 <article class="section-imagesReport">
   <div class="container">
-
-    <!-- cabecera -->
-    <div class="row">
-      <div class="col">
-        <h2>Galeria de Reporte</h2>
-      </div>
-      <div class="col-md-auto">
-       
-      </div>
-      <!-- <div class="col col-lg-3">
-        <select class="custom-select">
-          <option value="1">Minisplit</option>
-          <option value="2">Paquete</option>
-        </select>
-      </div> -->
-    </div>
     
     <div class="card-deck mb-3 text-center">
       
@@ -26,81 +10,80 @@
         <div class="card-header">
 
           <!-- btn delete -->
-          <i class="[ material-icons ] iconItem -color-tertiary -small">delete</i>
+          <i (click)="deleteEquipment()"
+            class="[ material-icons ] iconItem -color-tertiary -small">
+            delete
+          </i>
 
           <!-- add name  -->
            <p class="my-0 font-weight-normal">
-              <input type="text" placeholder="Nombre del equipo">
+              {{equipment.nombre_de_equipo}}
             </p>
           </div>
 
           <div class="card-body">
              
             <!-- galeria -->
-            <div class="inter">
+            <div *ngIf="equipment.tipo_de_equipo==='ambos' 
+                     || equipment.tipo_de_equipo==='interno'" class="inter">
               <h5 class="subtitle-item">Interior</h5>
 
               <div class="row">
                 <app-card-images
                     class="col-sm-12 col-md-6 col-lg-4 p-30"
                     [report]="report"
+                    [equipment] = "equipment"
                     [title]="'Antes'"
                     [path]="'interior/antes'"
                 ></app-card-images>
                 <app-card-images
                     class="col-sm-12 col-md-6 col-lg-4 p-30"
                     [report]="report"
+                    [equipment] = "equipment"
                     [title]="'Durante'"
                     [path]="'interior/durante'"
                 ></app-card-images>
                 <app-card-images
                     class="col-sm-12 col-md-6 col-lg-4 p-30 "
                     [report]="report"
+                    [equipment] = "equipment"
                     [title]="'Despúes'"
                     [path]="'interior/despues'"
                 ></app-card-images>
               </div>
 
             </div>
-             <hr>
+             <hr *ngIf="equipment.tipo_de_equipo==='ambos'">
             <!-- galeria 2-->
-            <div class="inter">
+            <div *ngIf="equipment.tipo_de_equipo==='ambos' 
+                     || equipment.tipo_de_equipo==='externo'" class="inter">
                 <h5 class="subtitle-item">Exterior</h5>
-  
                 <div class="row">
                   <app-card-images
                     class="col-sm-12 col-md-6 col-lg-4 p-30"
                     [report]="report"
+                    [equipment] = "equipment"
                     [title]="'Antes'"
                     [path]="'exterior/antes'">
                   </app-card-images>
                   <app-card-images
                     class="col-sm-12 col-md-6 col-lg-4 p-30"
                     [report]="report"
+                    [equipment] = "equipment"
                     [title]="'Durante'"
                     [path]="'exterior/durante'"
                   ></app-card-images>
                   <app-card-images
                     class="col-sm-12 col-md-6 col-lg-4 p-30"
                     [report]="report"
+                    [equipment] = "equipment"
                     [title]="'Despúes'"
                     [path]="'exterior/despues'"
                   ></app-card-images>
                 </div>
-  
               </div>
-  
             </div>
           </div>
         </div>
- 
-        <div class="row">
-              <div class="col-sm-12 col-md-4 offset-md-4 ">
-                <button type="button" class="btn -btn-primary-outline">AGREGAR EQUIPO</button>
-              </div>
-        </div>
-
-
-    </div> 
-
+    </div>
 </article>

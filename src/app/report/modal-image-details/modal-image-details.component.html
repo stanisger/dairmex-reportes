@@ -1,0 +1,25 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Detalle de Imagen</h4>
+  <button type="button" class="close" aria-label="Close"
+    (click)="_servActiveModal.close()">
+      <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <img [src]="getLink(selectedImage)" alt="">
+</div>
+<div class="modal-footer">
+  <textarea cols="30" rows="10" placeholder="Añadir comentario"
+    (keyup)="onChangeText()" [(ngModel)]="comment"
+    [ngModelOptions]="{standalone: true}">
+  </textarea>
+</div>
+<div class="modal-footer">
+  <p style="width: 100%">Caracteres disponibles: {{availableChars}}</p>
+</div>
+<br>
+<div class="[ row ] pb-20">
+  <div class="col-sm-12 col-lg-4 offset-lg-4">
+    <button type="button" (click)="close()" class="btn -btn-primary">GUARDAR CAMBIOS</button>
+  </div>
+</div>

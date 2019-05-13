@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { ProjectsService } from '../common/services/projects.service';
 import { Report } from '../common/models/report';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FilesService } from '../common/services/files.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
     private _servProjects: ProjectsService,
     private _servFiles: FilesService,
     private _router: Router,
+    private _activeRoute: ActivatedRoute,
     private _toast: ToastrService,
   ) {}
 
@@ -31,10 +32,16 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._activeRoute.params.subscribe(
+      params => this.getReports(params)
+    );
+  }
+
+  getReports({name='', city='', date=''}) {
     this.showSpinner = true;
-    this._toast.warning('Obteniendo los reportes de proyectos...')
+    this._toast.show('Obteniendo los reportes de proyectos...')
     this._servProjects
-    .getReports()
+    .getReports(name, city, date)
     .then( reports => this.reports=reports)
     .finally(()=>this.showSpinner=false);
   }

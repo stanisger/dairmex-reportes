@@ -18,6 +18,6 @@ export class Report {
     }
 
     static getProjectPath(report: Report) {
-        return `/${report.id_reporte}-${report.nombre_de_tienda}`;
+        return `/reportes/${report.id_reporte}-${report.nombre_de_tienda}`;
     }
 }

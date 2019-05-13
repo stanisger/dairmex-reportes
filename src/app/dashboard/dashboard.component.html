@@ -3,43 +3,8 @@
 <section class="dashboard-item">
     <div class="container">
         <div class="card-deck mb-3 text-center">
-
           <app-generate-report></app-generate-report>
-          
-          <!-- card -->
-          <div class="card mb-4 shadow-sm">
-            <div class="card-header">
-              <h3 class="my-0 font-weight-normal">Busqueda de Reportes </h3>
-            </div>
-            <div class="card-body">
-                    <form action="generate-report">
-
-                    <div class="form-label-group">
-                        <input type="text" id="inputNameStore" class="form-control" placeholder="Nombre de Tienda" required="" >
-                    </div>
-
-                    <div class="form-label-group">
-                            <input type="text" id="inputCity" class="form-control" placeholder="Ciudad" required="" >
-                    </div>
-    
-                    <div class="form-label-group -icon">
-                        <label for=""> <i class=" [ material-icons ] ">event_note</i></label>
-                        <input type="text" id="inputNameStore" class="form-control" placeholder="Fecha" required="" >
-                    </div>
-                    
-
-                    <button type="button" class="btn  btn-block -btn-disabled">Buscar</button>
-                        
-                </form>
-                
-                
-   
-            </div>
-          </div>
-
-
-
-
+          <app-filter-report class="card mb-4"></app-filter-report>
         </div>
 
         <div *ngIf="reports.length" class="card-deck mb-3 text-center">

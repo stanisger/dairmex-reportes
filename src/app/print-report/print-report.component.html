@@ -13,27 +13,28 @@
     <div class="hoja con-contenido" *ngFor="let file of getFilesFromFolder('planos')">
       <img class="contenido-principal" [src]="getLink(file)">
     </div>
-
-    <div class="hoja con-contenido" *ngFor="let sheet of getSheets('interior')">
-      <div class="contenido-principal columna">
-        <h1 *ngIf="sheet==1" class="título-principal">Estructura interior</h1>
-        
-        <div *ngFor="let group of getSheetsGroups('interior', sheet)">
-          <h2 class="título-secundario">{{printTitleGroup(group)}}</h2>
-          <div 
+    
+    <div *ngFor="let equipment of equipments">
+    
+      <div class="hoja con-contenido" *ngFor="let sheet of getSheets(equipment, 'interior')">
+        <div class="contenido-principal columna">
+          <h1 *ngIf="sheet==1" class="título-principal">{{equipment.nombre_de_equipo}} - Estructura interior</h1>
+          <div *ngFor="let group of getSheetsGroups('interior', sheet)">
+            <h2 class="título-secundario">{{printTitleGroup(group)}}</h2>
+            <div 
             class="contenido-de-malla">
-            <figure *ngFor="let file of group">
-              <img [src]="getLink(file)" alt="Trulli">
-              <figcaption>{{file.comentario}}</figcaption>
-            </figure>
+              <figure *ngFor="let file of group">
+                <img [src]="getLink(file)" alt="Trulli">
+                <figcaption>{{file.comentario}}</figcaption>
+              </figure>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="hoja con-contenido" *ngFor="let sheet of getSheets('exterior')">
+  
+      <div class="hoja con-contenido" *ngFor="let sheet of getSheets(equipment, 'exterior')">
         <div class="contenido-principal columna">
-          <h1 *ngIf="sheet==1" class="título-principal">Estructura exterior</h1>
+          <h1 *ngIf="sheet==1" class="título-principal">{{equipment.nombre_de_equipo}} - Estructura exterior</h1>
           <div *ngFor="let group of getSheetsGroups('exterior', sheet)">
             <h2 class="título-secundario">{{printTitleGroup(group)}}</h2>
             <div 
@@ -45,8 +46,10 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
 
+    </div>
+      
   <img 
     *ngFor="let file of getFilesFromFolder('check-list')" 
     class="hoja" [src]="getLink(file)">

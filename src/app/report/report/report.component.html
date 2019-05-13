@@ -4,7 +4,24 @@
     <app-breadcrumb [report]="report"></app-breadcrumb>
     <app-dates [report]="report"></app-dates>
     <app-main [report]="report"></app-main>
-    <app-images-reports [report]="report"></app-images-reports>
+
+    <!-- cabecera -->
+    <div *ngIf="equipments.length" class="row pt-30">
+      <div class="col">
+        <h2>Galeria de Equipos</h2>
+      </div>
+    </div>
+
+    <app-images-reports 
+      *ngFor="let equipment of equipments"
+      [report]="report"
+      [equipment] = "equipment"
+      (delete-equipment)='deleteEquipment($event)'>
+    </app-images-reports>
+
+    <app-btn-add-equipment (click)="addEquipment()">
+    </app-btn-add-equipment>
+    <hr>
     <app-mainor [report]="report"></app-mainor>
     <hr>
     <app-btn-save (click)="printReport()"></app-btn-save>

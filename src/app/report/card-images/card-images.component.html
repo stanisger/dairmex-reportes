@@ -1,24 +1,21 @@
   <span>{{title}}</span>
-  
+
   <span class="print-check -print-gallery">
-      <input type="checkbox" id="cb1" />
-      <label for="cb1">  <i class="material-icons"> local_printshop</i></label>
-    </span>
+    <input type="checkbox" id="cb1" />
+  </span>
 
   <!-- galeria -->
   <div class="masonry">
-
     <div class="brick up" *ngFor="let image of filesUploaded">
-      <img [src]="getLink(image)" alt="Cherry plant" title="image.nombre">
-      
+      <img [src]="getLink(image)" alt="image.nombre" title="image.nombre">
         <div class="brick-tools">
-          <i class="[ material-icons ] iconItem -color-primary -small" (click)="open(content, image)">visibility</i>
-          <i class="[ material-icons ] iconItem -color-tertiary -small">delete</i>
+          <i class="[ material-icons ] iconItem -color-primary -small" (click)="openImageDetails(image)">visibility</i>
+          <i class="[ material-icons ] iconItem -color-tertiary -small" (click)="deleteFileUploaded(image.id)">delete</i>
         </div>
     </div>
 
     <div class="brick" *ngFor="let image of filesToUpload">
-      <img [src]="image.temporalPath" alt="Cherry plant" title="image.name"> 
+      <img [src]="image.temporalPath" alt="image.nombre" title="image.nombre"> 
     </div>
   </div>
 
@@ -37,29 +34,3 @@
     <div class="double-bounce2-1"></div>
   </div>
 </div>
-<ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Detalle de Imagen</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-       <img [src]="getLink(selectedImage)" alt="">
-    </div>
-    <div class="modal-footer">
-      <textarea (keyup)="onChangeText()" [(ngModel)]="comentario" [ngModelOptions]="{standalone: true}" name="" id="" cols="30" rows="10" placeholder="Añadir comentario"></textarea>
-     <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae perferendis aperiam dicta maxime veniam corporis totam harum distinctio repellendus cupiditate odio sapiente eaque itaque labor.</p> -->
-    </div>
-    <div class="modal-footer">
-      <p style="width: 100%">Caracteres disponibles: {{availableChars}}</p>
-    </div>
-    
-    <br>
-    <div class="[ row ] pb-20">
-        <div class="col-sm-12 col-lg-4 offset-lg-4">
-          <button type="button" (click)="close()" class="btn -btn-primary">GUARDAR CAMBIOS</button>
-        </div>     
-      </div>
-</ng-template>
- 

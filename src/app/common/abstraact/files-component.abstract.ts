@@ -12,10 +12,10 @@ export class FilesComponentAstract {
   public filesUploaded: Array<any> = [];
   public showSpinner = false;
   public report: Report;
-  public path: string;
+  public path:   string;
   public _servFiles: FilesService;
   public _sanitizer: DomSanitizer;
-  public _toast: ToastrService
+  public _toast:     ToastrService
 
   constructor(_servFiles: FilesService, _sanitizer: DomSanitizer, _toast: ToastrService) {
       this._servFiles = _servFiles;
@@ -78,20 +78,17 @@ export class FilesComponentAstract {
              && this._toast.success(`Archivo No. ${requestCounter} subido correctamente.`);
              return requestCounter<files.length
              && this._servFiles.addFile(files[requestCounter++])
-               .then(recursivePromise);
+                .then(recursivePromise);
          }
          
          return recursivePromise();
        }
-    ).then( () => {
+    ).catch( () => this._toast.error('Ocurrió un error al subir algunos de los archivos.') )
+    .finally(() => {
       this.filesToUpload=[];
       this.getFilesUploaded();
-    }).catch( () => {
-      this.filesToUpload=[];
-      this._toast.error('Ocurrió un error al subir algunos de los archivos.');
-      this.getFilesUploaded();
-    })
-    .finally(()=>this.showSpinner=false);
+      this.showSpinner=false
+    });
   }
   
   getLink(file: File){

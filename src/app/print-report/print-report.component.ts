@@ -5,6 +5,8 @@ import { Report } from 'src/app/common/models/report';
 import { FilesService } from '../common/services/files.service';
 import { File } from '../common/models/file';
 import { environment as ENV } from 'src/environments/environment';
+import { EquipmentsService } from '../common/services/equipments.service';
+import { Equipment } from '../common/models/equipment';
 
 @Component({
   selector: 'app-print-report',
@@ -14,15 +16,15 @@ import { environment as ENV } from 'src/environments/environment';
 export class PrintReportComponent implements OnInit {
 
   public lastGroupPrint = '';
-  public idReport: string;
-  public report:   Report;
-  public rootPath: string = '';
-  public files:    Array<File> = [];
+  public report:     Report;
+  public equipments: Array<Equipment> = [];
+  public files:      Array<File> = [];
 
   
   constructor(
     private _route: ActivatedRoute,
     private _servProjects: ProjectsService,
+    private _servEquipments: EquipmentsService,
     private _servFiles: FilesService,
   ) { }
 
@@ -35,12 +37,13 @@ export class PrintReportComponent implements OnInit {
   initReport(idReport) {
     if (!idReport) {return;}
 
-    console.log(idReport)
     this._servProjects
     .getReport(idReport)
-    .then(report   => Report.getProjectPath(report))
-    .then(rootPath => this._servFiles.getFilesByPath(rootPath) )
-    .then(files    => this.files = files)
+    .then(report   => this.report = report)
+    .then(() => this._servFiles.getFilesByPath(Report.getProjectPath(this.report)) )
+    .then(files => this.files = files)
+    .then(() => this._servEquipments.getEquipmentsPerReport(idReport))
+    .then(equipments => this.equipments=equipments);
   }
 
   getLink(file: File) {
@@ -62,14 +65,16 @@ export class PrintReportComponent implements OnInit {
     );
   }
 
-  groups(path){
+  groups(path) {
     return this.getFilesGroupFrom(`${path}/antes`)
       .concat(this.getFilesGroupFrom(`${path}/durante`))
       .concat(this.getFilesGroupFrom(`${path}/despues`));
   }
-  getSheets(path) {
+
+  getSheets(equipment: Equipment, path) {
+    let equipmentPath = Equipment.getEquipmentPath(equipment);
     this.lastGroupPrint='';
-    return this.createRange(Math.ceil(this.groups(path).length/3))
+    return this.createRange(Math.ceil(this.groups(`${equipmentPath}/${path}`).length/3))
   }
 
   getSheetsGroups(path, page) {
@@ -86,14 +91,15 @@ export class PrintReportComponent implements OnInit {
      if (group[0].ubicacion!=this.lastGroupPrint) {
          this.lastGroupPrint = group[0].ubicacion;
          return (
-           this.lastGroupPrint.match(/.*antes.*/)?'Antes'
-           :this.lastGroupPrint.match(/.*durante.*/)?'Durante'
-           :this.lastGroupPrint.match(/.*despues.*/)?'Después'
+           this.lastGroupPrint.match(/.*antes.*/)    ? 'Antes'
+           :this.lastGroupPrint.match(/.*durante.*/) ? 'Durante'
+           :this.lastGroupPrint.match(/.*despues.*/) ? 'Después'
            :''
          );
      }
      return '';
   }
+
   /** 
    * https://stackoverflow.com/questions/36095496/angular-2-how-to-write-a-for-loop-not-a-foreach-loop
    */
