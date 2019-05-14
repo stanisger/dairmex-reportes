@@ -27,4 +27,8 @@ export class ModalAddEquipmentComponent implements OnInit {
       new Equipment(this.equipmentName, this.equipmentType, this.report.id_reporte)
     )
   }
+
+  closeModal() {
+    this._servActiveModal.close(false);
+  }
 }

@@ -64,13 +64,14 @@ export class ReportComponent implements OnInit {
     modalAddEquipment.componentInstance.report = this.report;
 
     modalAddEquipment.result.then((ne: Equipment) => {
-      this._toast.show('Agregando equipo ...');
-      
-      ne && !this.equipments.find(e => e.nombre_de_equipo===ne.nombre_de_equipo)
-      ? this._servEquipments.addEquipment(ne)
-        .then(ne => this._toast.success('Equipo agregado correctamente.'))
-        .then(() => this.getEquipments())
-      : this._toast.error('Ya existe un equipo con este nombre')
+      ne ?
+        this._toast.show('Agregando equipo ...')
+        || !this.equipments.find(e => e.nombre_de_equipo===ne.nombre_de_equipo)
+        ? this._servEquipments.addEquipment(ne)
+          .then(ne => this._toast.success('Equipo agregado correctamente.'))
+          .then(() => this.getEquipments())
+        : this._toast.error('Ya existe un equipo con este nombre')
+      :'';
     })
     .catch(()=>{})
   }

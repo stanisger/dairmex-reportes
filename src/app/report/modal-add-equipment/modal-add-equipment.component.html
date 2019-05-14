@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-basic-title">Agregar nuevo equipo</h4>
-  <button type="button" class="close" aria-label="Close" (click)="_servActiveModal.close()">
+  <button type="button" class="close" aria-label="Close" (click)="closeModal()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -24,5 +24,8 @@
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-dark" (click)="addEquipment()">Agregar</button>
+  <button type="button" class="btn btn-block -btn-primary"
+    [disabled]="!equipmentName || !equipmentType"
+    [ngClass]="{'-btn-disabled': !equipmentName || !equipmentType}"
+    (click)="addEquipment()">Agregar</button>
 </div>
